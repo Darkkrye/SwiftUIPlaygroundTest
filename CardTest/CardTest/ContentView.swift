@@ -1,13 +1,19 @@
-import SwiftUI
-import PlaygroundSupport
+//
+//  ContentView.swift
+//  CardTest
+//
+//  Created by Openfield Mobility on 14/06/2019.
+//  Copyright © 2019 Openfield. All rights reserved.
+//
 
-struct CustomContentView: View {
+import SwiftUI
+
+struct ContentView : View {
     var model: Model
     let buttonWidth: CGFloat
     
     var body: some View {
         VStack {
-            
             VStack {
                 self.model.image
                     .frame(width: 10)
@@ -26,7 +32,7 @@ struct CustomContentView: View {
                             .font(.footnote)
                     }
                     
-                    HStack {
+                    HStack(spacing: 0) {
                         // Buttons
                         Button(action: {
                             print("Ok")
@@ -34,9 +40,16 @@ struct CustomContentView: View {
                             Text("OK")
                                 .color(Color.white)
                         }
-                        .frame(width: self.buttonWidth, height: 35, alignment: .center)
+                        .frame(width: self.buttonWidth - 1, height: 35)
                         .background(Color.green)
-                        .padding(.init(arrayLiteral: .bottom, .leading), -10)
+                        
+                        Button(action: {
+                            print("Toto")
+                        }) {
+                            Text("")
+                        }
+                        .frame(width: 2, height: 35, alignment: .center)
+                        .background(Color.black)
                         
                         Button(action: {
                             print("Cancel")
@@ -44,10 +57,10 @@ struct CustomContentView: View {
                             Text("Cancel")
                                 .color(Color.white)
                         }
-                        .frame(width: self.buttonWidth, height: 35, alignment: .center)
+                        .frame(width: self.buttonWidth - 1, height: 35)
                         .background(Color.red)
-                        .padding(.init(arrayLiteral: .bottom, .trailing), -10)
                     }
+                    .padding(.init(arrayLiteral: .bottom, .trailing, .leading), -10)
                 }
                 .padding(.init(arrayLiteral: .bottom, .leading, .trailing), 10)
             }
@@ -65,10 +78,5 @@ struct Model {
     var subtitle = "Disneyland Park"
     var land = "FrontierLand"
     var priceRange = "€€"
-    var image = Image(uiImage: UIImage(named: "cowboy-cookout.jpg")!)
+    var image = Image(uiImage: UIImage(named: "cowboy-cookout")!)
 }
-
-PlaygroundPage.current.liveView = UIHostingController(rootView: CustomContentView(model: Model(), buttonWidth: UIScreen.main.bounds.width / 5 - 50))
-
-// HStack = Côte à côte
-// VStack = L'un au dessus de l'autre
