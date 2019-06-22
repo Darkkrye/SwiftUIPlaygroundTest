@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "PrintableObject",
+        "repositoryURL": "https://github.com/Darkkrye/PrintableObject.git",
+        "state": {
+          "branch": null,
+          "revision": "b0afdeae39401c8ac3ced3ebf31d22057113d75a",
+          "version": "1.0.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
